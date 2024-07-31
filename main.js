@@ -1,10 +1,12 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const port  = 3001
 const {v4: uuidv4} = require('uuid')
 app.use(express.json())
-
+app.use(cors());
 const users = []
+
 app.get('/users/:id', (req, res) => {
     const userId = req.params.id;
     const user = users.find(u => u.id === userId);
